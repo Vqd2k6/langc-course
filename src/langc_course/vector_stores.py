@@ -246,8 +246,8 @@ def exercise_vector_store_setup():
 
 if __name__ == "__main__":
     # chroma_basics()
-    similarity_search_with_scores()
-    # metadata_filtering()
+    # similarity_search_with_scores()
+    metadata_filtering()
     # as_retriever()
     # persist_chroma()
     # exercise_vector_store_setup()
