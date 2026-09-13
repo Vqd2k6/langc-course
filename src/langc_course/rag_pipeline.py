@@ -56,8 +56,6 @@ Create your first chain in under 10 lines of code.
 """
 llm = ChatGoogleGenerativeAI(model="gemini-3.6-flash")
 
-
-
 def create_kb():
     """Create a vector store from knowledge base."""
 
