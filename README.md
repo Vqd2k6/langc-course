@@ -38,49 +38,51 @@ LANGSMITH_PROJECT="langc-course"
 
 ## 📂 Cấu Trúc Mã Nguồn (`src/langc_course/`)
 
-| Tệp | Mô tả |
-| :--- | :--- |
-| [`main.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/main.py) | Kiểm tra cài đặt và gọi thử các model Gemini (`gemini-3.6-flash`, `gemini-3.5-flash`). |
-| [`document_loaders.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/document_loaders.py) | Demo tải dữ liệu từ tệp văn bản (`TextLoader`) và tệp PDF (`PyPDFLoader`). |
-| [`text_splitters.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/text_splitters.py) | Các chiến lược chia nhỏ văn bản (Recursive, Character, Token, Markdown Header Splitter). |
-| [`prod_senmatic.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/prod_senmatic.py) | Chiến lược cắt văn bản ngữ nghĩa (`SemanticChunker`) kết hợp cơ chế Recursive Fallback dùng Google Embeddings. |
-| [`embeddings_deep.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/embeddings_deep.py) | Tạo embedding đơn lẻ, batch embedding, tính Cosine Similarity và lưu cache embedding (`CacheBackedEmbeddings`). |
-| [`vector_stores.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/vector_stores.py) | Lưu trữ và truy vấn vector database với ChromaDB sử dụng Google Embeddings. |
-| [`rag_pipeline.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/rag_pipeline.py) | Triển khai hoàn chỉnh luồng RAG (Retrieval-Augmented Generation) kết hợp Chroma và Gemini. |
-| [`cost_optimization.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/cost_optimization.py) | Các kỹ thuật tối ưu chi phí LLM: Model Routing, Response Caching, và Token Budgeting với Gemini. |
-| [`langsmith_setup.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/langsmith_setup.py) | Cấu hình giám sát LangSmith: Basic Tracing, Tagged Runs, và Metadata Filtering với Gemini. |
+Các bài học và mã nguồn được đánh số thứ tự tuần tự từ cơ bản đến nâng cao:
+
+| TT | Tệp | Mô tả |
+| :---: | :--- | :--- |
+| 01 | [`01_main.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/01_main.py) | Khởi động & kiểm tra kết nối với các model Gemini (`gemini-3.6-flash`, `gemini-3.5-flash`). |
+| 02 | [`02_document_loaders.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/02_document_loaders.py) | Tải dữ liệu từ tệp văn bản (`TextLoader`) và tệp PDF (`PyPDFLoader`). |
+| 03 | [`03_text_splitters.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/03_text_splitters.py) | Các chiến lược chia nhỏ văn bản (Recursive, Character, Token, Markdown Header Splitter). |
+| 04 | [`04_prod_senmatic.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/04_prod_senmatic.py) | Cắt văn bản ngữ nghĩa nâng cao (`SemanticChunker`) kết hợp cơ chế Recursive Fallback. |
+| 05 | [`05_embeddings_deep.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/05_embeddings_deep.py) | Tạo vector embedding đơn/batch, tính Cosine Similarity và lưu bộ nhớ đệm (`CacheBackedEmbeddings`). |
+| 06 | [`06_vector_stores.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/06_vector_stores.py) | Lưu trữ và truy vấn vector database với ChromaDB sử dụng Google Embeddings. |
+| 07 | [`07_rag_pipeline.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/07_rag_pipeline.py) | Xây dựng pipeline RAG (Retrieval-Augmented Generation) hoàn chỉnh kết hợp Chroma và Gemini. |
+| 08 | [`08_cost_optimization.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/08_cost_optimization.py) | Tối ưu chi phí LLM: Model Routing (Flash-Lite / Pro), Response Caching, và Token Budgeting. |
+| 09 | [`09_langsmith_setup.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/09_langsmith_setup.py) | Giám sát & Quan trắc với LangSmith: Basic Tracing, Tagged Runs, và Metadata Filtering. |
 
 ---
 
 ## 🏃 Hướng Dẫn Chạy Thử
 
-Chạy từng module thông qua `uv`:
+Chạy từng bài học thông qua `uv`:
 
 ```bash
-# Kiểm tra kết nối Gemini
-uv run python src/langc_course/main.py
+# Bài 01: Setup & Gọi thử Gemini
+uv run python src/langc_course/01_main.py
 
-# Demo Semantic Chunking trong Production
-uv run python src/langc_course/prod_senmatic.py
+# Bài 02: Document Loaders (Text, PDF)
+uv run python src/langc_course/02_document_loaders.py
 
-# Demo Embeddings & Caching
-uv run python src/langc_course/embeddings_deep.py
+# Bài 03: Text Splitters & Chunking
+uv run python src/langc_course/03_text_splitters.py
 
-# Demo Document Loaders
-uv run python src/langc_course/document_loaders.py
+# Bài 04: Semantic Chunking trong Production
+uv run python src/langc_course/04_prod_senmatic.py
 
-# Demo Text Splitters
-uv run python src/langc_course/text_splitters.py
+# Bài 05: Embeddings & Caching
+uv run python src/langc_course/05_embeddings_deep.py
 
-# Demo Vector Stores (Chroma)
-uv run python src/langc_course/vector_stores.py
+# Bài 06: Vector Stores (ChromaDB)
+uv run python src/langc_course/06_vector_stores.py
 
-# Demo RAG Pipeline
-uv run python src/langc_course/rag_pipeline.py
+# Bài 07: RAG Pipeline
+uv run python src/langc_course/07_rag_pipeline.py
 
-# Demo Tối ưu Chi phí (Model Routing, Caching, Token Budgeting)
-uv run python src/langc_course/cost_optimization.py
+# Bài 08: Tối ưu Chi phí (Model Routing, Caching, Token Budgeting)
+uv run python src/langc_course/08_cost_optimization.py
 
-# Demo LangSmith Observability & Tracing
-uv run python src/langc_course/langsmith_setup.py
+# Bài 09: LangSmith Observability & Tracing
+uv run python src/langc_course/09_langsmith_setup.py
 ```
