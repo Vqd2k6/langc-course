@@ -443,8 +443,8 @@ Answer:"""
 
 
 if __name__ == "__main__":
-    # demo_multi_query_retriever()
-    # demo_contextual_compression()
-    # demo_ensemble_hybrid_search()
-    # demo_parent_document_retriever()
+    demo_multi_query_retriever()
+    demo_contextual_compression()
+    demo_ensemble_hybrid_search()
+    demo_parent_document_retriever()
     demo_advanced_rag_chain()
