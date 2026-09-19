@@ -34,7 +34,7 @@ def smart_chunker(
             chunks = chunker.split_text(text)
 
             # Validate chunks aren't too large
-            max_chunk_size = 2000
+            max_chunk_size = 200
             if any(len(c) > max_chunk_size for c in chunks):
                 # Fallback to recursive for oversized chunks
                 return _recursive_fallback(text, fallback_chunk_size)

@@ -1,6 +1,6 @@
 # LangChain Course & Practice
 
-Repository học tập và thực hành các khái niệm cốt lõi trong hệ sinh thái **LangChain**, bao gồm Document Loaders, Text Splitters, Semantic Chunking, Embeddings, Vector Stores, RAG Pipelines, Cost Optimization Patterns và LangSmith Observability.
+Repository học tập và thực hành các khái niệm cốt lõi trong hệ sinh thái **LangChain**, bao gồm Document Loaders, Text Splitters, Embeddings, Vector Stores, RAG Pipelines, Cost Optimization Patterns, LangSmith Observability, Semantic Chunking và Advanced RAG Patterns.
 
 ---
 
@@ -45,12 +45,13 @@ Các bài học và mã nguồn được đánh số thứ tự tuần tự từ
 | 01 | [`01_main.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/01_main.py) | Khởi động & kiểm tra kết nối với các model Gemini (`gemini-3.6-flash`, `gemini-3.5-flash`). |
 | 02 | [`02_document_loaders.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/02_document_loaders.py) | Tải dữ liệu từ tệp văn bản (`TextLoader`) và tệp PDF (`PyPDFLoader`). |
 | 03 | [`03_text_splitters.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/03_text_splitters.py) | Các chiến lược chia nhỏ văn bản (Recursive, Character, Token, Markdown Header Splitter). |
-| 04 | [`04_prod_senmatic.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/04_prod_senmatic.py) | Cắt văn bản ngữ nghĩa nâng cao (`SemanticChunker`) kết hợp cơ chế Recursive Fallback. |
-| 05 | [`05_embeddings_deep.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/05_embeddings_deep.py) | Tạo vector embedding đơn/batch, tính Cosine Similarity và lưu bộ nhớ đệm (`CacheBackedEmbeddings`). |
-| 06 | [`06_vector_stores.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/06_vector_stores.py) | Lưu trữ và truy vấn vector database với ChromaDB sử dụng Google Embeddings. |
-| 07 | [`07_rag_pipeline.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/07_rag_pipeline.py) | Xây dựng pipeline RAG (Retrieval-Augmented Generation) hoàn chỉnh kết hợp Chroma và Gemini. |
-| 08 | [`08_cost_optimization.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/08_cost_optimization.py) | Tối ưu chi phí LLM: Model Routing (Flash-Lite / Pro), Response Caching, và Token Budgeting. |
-| 09 | [`09_langsmith_setup.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/09_langsmith_setup.py) | Giám sát & Quan trắc với LangSmith: Basic Tracing, Tagged Runs, và Metadata Filtering. |
+| 04 | [`04_embeddings_deep.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/04_embeddings_deep.py) | Tạo vector embedding đơn/batch, tính Cosine Similarity và lưu bộ nhớ đệm (`CacheBackedEmbeddings`). |
+| 05 | [`05_vector_stores.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/05_vector_stores.py) | Lưu trữ và truy vấn vector database với ChromaDB sử dụng Google Embeddings. |
+| 06 | [`06_rag_pipeline.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/06_rag_pipeline.py) | Xây dựng pipeline RAG (Retrieval-Augmented Generation) hoàn chỉnh kết hợp Chroma và Gemini. |
+| 07 | [`07_cost_optimization.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/07_cost_optimization.py) | Tối ưu chi phí LLM: Model Routing (Flash-Lite / Pro), Response Caching, và Token Budgeting. |
+| 08 | [`08_langsmith_setup.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/08_langsmith_setup.py) | Giám sát & Quan trắc với LangSmith: Basic Tracing, Tagged Runs, và Metadata Filtering. |
+| 09 | [`09_prod_senmatic.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/09_prod_senmatic.py) | Cắt văn bản ngữ nghĩa nâng cao (`SemanticChunker`) kết hợp cơ chế Recursive Fallback. |
+| 10 | [`10_advanced_rag.py`](file:///Users/vqd2k6/Desktop/SGOD/Self/langc-course/src/langc_course/10_advanced_rag.py) | Các kỹ thuật RAG nâng cao: Multi-Query Retriever, Contextual Compression, Ensemble/Hybrid Search, Parent Document Retriever. |
 
 ---
 
@@ -68,21 +69,24 @@ uv run python src/langc_course/02_document_loaders.py
 # Bài 03: Text Splitters & Chunking
 uv run python src/langc_course/03_text_splitters.py
 
-# Bài 04: Semantic Chunking trong Production
-uv run python src/langc_course/04_prod_senmatic.py
+# Bài 04: Embeddings & Caching
+uv run python src/langc_course/04_embeddings_deep.py
 
-# Bài 05: Embeddings & Caching
-uv run python src/langc_course/05_embeddings_deep.py
+# Bài 05: Vector Stores (ChromaDB)
+uv run python src/langc_course/05_vector_stores.py
 
-# Bài 06: Vector Stores (ChromaDB)
-uv run python src/langc_course/06_vector_stores.py
+# Bài 06: RAG Pipeline
+uv run python src/langc_course/06_rag_pipeline.py
 
-# Bài 07: RAG Pipeline
-uv run python src/langc_course/07_rag_pipeline.py
+# Bài 07: Tối ưu Chi phí (Model Routing, Caching, Token Budgeting)
+uv run python src/langc_course/07_cost_optimization.py
 
-# Bài 08: Tối ưu Chi phí (Model Routing, Caching, Token Budgeting)
-uv run python src/langc_course/08_cost_optimization.py
+# Bài 08: LangSmith Observability & Tracing
+uv run python src/langc_course/08_langsmith_setup.py
 
-# Bài 09: LangSmith Observability & Tracing
-uv run python src/langc_course/09_langsmith_setup.py
+# Bài 09: Semantic Chunking trong Production
+uv run python src/langc_course/09_prod_senmatic.py
+
+# Bài 10: Advanced RAG Patterns
+uv run python src/langc_course/10_advanced_rag.py
 ```
